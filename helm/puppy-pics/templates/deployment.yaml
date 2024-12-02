@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "puppy-pics.fullname" . }}
+  labels:
+    {{- include "puppy-pics.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "puppy-pics.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "puppy-pics.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "puppy-pics.fullname" . }}
+      containers:
+        - name: {{ include "puppy-pics.fullname" . }}
+          env:
+          - name: BUCKET_NAME
+            value: {{ .Values.deployment.bucketName }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.deployment.containerPort }}
+              name: {{ .Values.deployment.portName }}

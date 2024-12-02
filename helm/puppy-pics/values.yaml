@@ -1,0 +1,26 @@
+# Default values for puppy-pics.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  pullPolicy: Always
+  repository: 283535628747.dkr.ecr.us-east-1.amazonaws.com/aws-practical/puppy-pics
+  tag: ""
+
+service:
+  port: 80
+  portName: http
+  protocol: TCP
+  targetPort: http
+  type: LoadBalancer
+  allowlist: ""
+
+serviceAccount:
+  roleArn: ""
+
+deployment:
+  containerPort: 5000
+  portName: http
+  bucketName: ""

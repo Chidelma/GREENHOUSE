@@ -1,0 +1,10 @@
+tmp
+**/.terraform
+**/.terraform*
+**/*.tfstate*
+**/*.tfplan*
+terraform/modules/*/*.tar.gz
+!.terraform-version
+.envrc
+.idea/
+.DS_Store
