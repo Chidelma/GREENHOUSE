@@ -8,3 +8,9 @@ terraform/modules/*/*.tar.gz
 .envrc
 .idea/
 .DS_Store
+AGENTS.md
+CLAUDE.md
+.github/copilot-instructions.md
+.claude
+.codex
+.vscode

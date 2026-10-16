@@ -5,3 +5,6 @@ __pycache__/
 # Virtual environment
 .env
 .venv/
+.claude
+.codex
+.vscode
